@@ -1,8 +1,8 @@
 import PySimpleGUI as sg
 import sqlite3
 import math
-#sg.theme('DarkTeal2')
-
+sg.theme('DarkTeal2')
+#sg.theme('Material2')
 #Fetch Crop files from database for Spring
 connection = sqlite3.connect('SVPCC.db')
 cursor = connection.cursor()
@@ -132,6 +132,8 @@ cropQuality = {
 }
 
 def moneyCalculation(tableID, farmLevel, crop, amount: int, fertilizer):
+    if fertilizer == "Speed-Gro" or fertilizer == "Deluxe Speed-Gro" or fertilizer == "Hyper Speed-Gro":
+        fertilizer = "None"
     qualityCalcValues = cropQuality[fertilizer][str(farmLevel)]
     cropValue = springCrops[crop][6]
     cropRawQuantityCeil = []
