@@ -11,7 +11,6 @@ fetchAll = result.fetchall()
 springCrops = {}
 for item in fetchAll:
     springCrops[item[1]] = item
-springCrops.pop(None)
 springCropsNames = []
 for crop in springCrops:
     springCropsNames.append(crop)
