@@ -1,24 +1,16 @@
-import tkinter as tk
-from tkinter import ttk
-from tkinter.messagebox import showinfo
+from tkinter import * #Import TK
 
-class Main(tk.Tk):
-    def __init__(self):
-        super().__init__()
+root = Tk() #Create root window
 
-        self.title('Stardew Valley Companion App')
-        self.geometry('1280x720')
+root.title("Stardew Valley Companion App") #Assign window title
+root.geometry('1280x720') #Set window size 
 
-        self.label = ttk.Label(self, text='Stardew Valley Companion').pack()
-        self.button = ttk.Button(self, text='Click me')
-        self.button['command'] = self.button_clicked
-        self.button.pack()
-    
-    
+menu = Menu(root)
+item = Menu(menu)
+item.add_command(label='Save')
+item.add_command(label='Load')
+menu.add_cascade(label='File', menu=item)
+root.config(menu=menu)
 
-    def button_clicked(self):
-        showinfo(title='Stardew Valley Companion', message='Stardew Valley Companion Message')
 
-if __name__ == "__main__":
-    app = Main()
-    app.mainloop()
+root.mainloop() #Execute loop
