@@ -35,7 +35,7 @@ yearDataList =[]
 #-=-Functions-=-#
 #Generate a new year's worth of events to display in subsequent years on the crop planner as a nested dictionary
 def generateNewYearEvents():
-    events = {
+    data = {
         "Spring": {
             "1": [""],
             "2": [""],
@@ -54,7 +54,7 @@ def generateNewYearEvents():
             "15": [""],
             "16": [""],
             "17": [""],
-            "18": ["Pamodel's Birthday", "PicOfPam"],
+            "18": ["Pam's Birthday", "PicOfPam"],
             "19": [""],
             "20": ["Shane's Birthday", "PicOfShane"],
             "21": [""],
@@ -158,9 +158,9 @@ def generateNewYearEvents():
 
         }
     }
-    return events
+    return data
 
-#Create a blank tkinter calendar for a tab
+#Create a tkinter calendar with data for a tab
 def createBlankCalendar(tabToCreateAt, season):
     dayCounter = 0
     mainFrame = ttk.Frame(master=tabToCreateAt)
@@ -178,7 +178,7 @@ def createBlankCalendar(tabToCreateAt, season):
             frameGrid.grid(row=y, column=x)
             print (yearDataList[len(yearDataList)-1][season].get(str(dayCounter)))
             textForGrid = str(dayCounter) + ": " + str(yearDataList[len(yearDataList)-1][season].get(str(dayCounter))[0])
-            labelGrid = ttk.Label(master=frameGrid, text=textForGrid, font=("Arial", 8), justify='left').pack()
+            labelGrid = ttk.Label(master=frameGrid, text=textForGrid, font=("Arial", 9), justify='left').pack()
         mainFrame.pack()
 
 #Generate a set of tabs for Spring, Summer, Fall and Winter
