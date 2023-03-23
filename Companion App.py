@@ -176,7 +176,7 @@ def createBlankCalendar(tabToCreateAt, season):
             frameGrid = ttk.Frame(master=mainFrame, relief=tkinter.RAISED, borderwidth=2, width=125, height=125)
             frameGrid.pack_propagate(False)
             frameGrid.grid(row=y, column=x)
-            print (yearDataList[len(yearDataList)-1][season].get(str(dayCounter)))
+            #print (yearDataList[len(yearDataList)-1][season].get(str(dayCounter)))
             textForGrid = str(dayCounter) + ": " + str(yearDataList[len(yearDataList)-1][season].get(str(dayCounter))[0])
             labelGrid = ttk.Label(master=frameGrid, text=textForGrid, font=("Arial", 9), justify='left').pack()
         mainFrame.pack()
@@ -227,7 +227,7 @@ root.config(menu=menu)
 
 mainTabControl = ttk.Notebook
 
-tabGenerate(root)
+calendar = tabGenerate(root)
 #-=-UNDER MAINTENANCE-=-#
 """
 yearList.append([tabGenerate(root, "Test Text 1"), "generateNewYearEvents()"])
@@ -257,8 +257,19 @@ def traverseYearListRight():
     return currentPos, yearList[currentPos]
 
 """
+#-=-Year List Traversal-=-#
+currentPos = 0
 
-#leftButton = ttk.Button(master=root, text="<---", command=lambda: traverseYearListLeft()).pack()
+def traverseYearListLeft():
+    global currentPos
+    #print ("Current Year Stack Pos: " + str(currentPos) + " | " + str(yearDataList))
+    if currentPos > 0:
+        print (yearDataList[currentPos-1])
+
+    
+    
+
+leftButton = ttk.Button(master=root, text="<---", command=lambda: traverseYearListLeft()).pack()
 #rightButton = ttk.Button(master=root, text="--->", command=lambda: traverseYearListRight()).pack()
 
 root.mainloop() #Execute loop
